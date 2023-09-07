@@ -90,10 +90,26 @@ img
 	justify-content: center;
 }
 
+.controls .pause_play {
+	width: 26px;
+	height: 26px;
+	background-color: white;
+    display: none;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+}
+
+.slider:hover .pause_play {
+    display: flex;
+}
+
+
 .d-flex
 {
 	display: flex;
 }
+
 
 /* Thumbs */
 

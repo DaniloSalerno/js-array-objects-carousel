@@ -42,6 +42,8 @@ const slides = [
   const sliderImagesEl = document.querySelector('.slider .images')
   const prevEl = document.querySelector('.prev')
   const nextEl = document.querySelector('.next')
+
+  const pausePlayEl = document.querySelector('.pause_play')
   
   
   //console.log(sliderImagesEl);
@@ -257,3 +259,9 @@ slides.forEach((element,index) => {
         nextThumb.classList.add('active')
 
   }
+
+  pausePlayEl.addEventListener('click', ()=> {
+    clearInterval(autoNextPlay);
+    clearInterval(autoPrevPlay);
+
+  })
