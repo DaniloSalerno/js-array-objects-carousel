@@ -131,12 +131,14 @@ slides.forEach((element,index) => {
 
   
   // intercept click on the next icon 
-  nextEl.addEventListener('click', nextPlay);
+  nextEl.addEventListener('click', () => {
+      autoNextPlay = setInterval(nextPlay, 1000);
+      clearInterval(autoPrevPlay)
+
+  });
 
   function nextPlay() {  
       
-clearInterval(autoPrevPlay)
- autoNextPlay = setInterval(nextPlay, 3000);
 
       console.log('cliccato su next');
     // select the current slide
@@ -186,7 +188,11 @@ clearInterval(autoPrevPlay)
 
   
   // activeSlide = 0
-  prevEl.addEventListener('click', prevPlay)
+  prevEl.addEventListener('click', () => {
+      clearInterval(autoNextPlay)
+      autoPrevPlay = setInterval(prevPlay, 1000);
+
+  })
 
 
   function prevPlay() {
@@ -194,8 +200,6 @@ clearInterval(autoPrevPlay)
   
     console.log('cliccato su prev');
   
-    clearInterval(autoNextPlay)
-    autoPrevPlay = setInterval(prevPlay, 3000);
     
   
     // select the current slide
