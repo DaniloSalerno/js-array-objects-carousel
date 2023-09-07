@@ -113,7 +113,7 @@ slides.forEach((element,index) => {
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
     
   } */
-  
+
   slides.forEach((element,index) => {
     const thumbPath = element;
     console.log(thumbPath);    
@@ -126,13 +126,18 @@ slides.forEach((element,index) => {
 });
   
   
+
+
+
   
-  
+const autoNextPlay = setInterval(nextPlay, 3000);
   
   // intercept click on the next icon 
-  nextEl.addEventListener('click', function(){
-    console.log('cliccato su next');
-  
+  //nextEl.addEventListener('click', nextPlay);
+
+  function nextPlay() {  
+      
+      console.log('cliccato su next');
     // select the current slide
     const currentSlide = slidesImages[activeSlide]
     console.log(currentSlide);
@@ -174,7 +179,7 @@ slides.forEach((element,index) => {
     nextThumb.classList.add('active')
   
   
-  })
+  }
   
   // intercept click on the prev icon
   
@@ -183,6 +188,7 @@ slides.forEach((element,index) => {
   prevEl.addEventListener('click', function () {
     console.log('cliccato su prev');
   
+    clearInterval(autoNextPlay)
     
   
     // select the current slide
