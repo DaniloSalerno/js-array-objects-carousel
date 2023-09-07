@@ -134,6 +134,8 @@ slides.forEach((element,index) => {
   
   // intercept click on the next icon 
   nextEl.addEventListener('click', () => {
+    clearInterval(autoNextPlay)
+
       autoNextPlay = setInterval(nextPlay, 1000);
       clearInterval(autoPrevPlay)
 
@@ -191,6 +193,8 @@ slides.forEach((element,index) => {
   
   // activeSlide = 0
   prevEl.addEventListener('click', () => {
+    clearInterval(autoPrevPlay)
+
       clearInterval(autoNextPlay)
       autoPrevPlay = setInterval(prevPlay, 1000);
 
