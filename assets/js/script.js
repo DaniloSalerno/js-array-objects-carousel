@@ -47,9 +47,8 @@ const nextEl = document.querySelector('.next');
 
 const pausePlayEl = document.querySelector('.pause_play');
 
-const slidesImages = document.querySelectorAll('.slider .images > img');
-
 const thumbsElement = document.querySelector('.thumbnails');
+
 
 /* Print all images into the dom */
 // loop over the slides 
@@ -91,8 +90,13 @@ nextEl.addEventListener('click', () => {
 
 function nextPlay() {
 
-    // select the current slide
+const slidesImages = document.querySelectorAll('.slider .images > img');
+
+
+
     const currentSlide = slidesImages[activeSlide]
+
+    // select the current slide
     console.log(currentSlide);
     // remove the active class from the current slide
     currentSlide.classList.remove('active')
@@ -139,6 +143,10 @@ prevEl.addEventListener('click', () => {
 
 
 function prevPlay() {
+    const slidesImages = document.querySelectorAll('.slider .images > img');
+
+
+
 
     // select the current slide
     const currentSlide = slidesImages[activeSlide];
