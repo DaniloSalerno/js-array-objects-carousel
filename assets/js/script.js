@@ -125,18 +125,19 @@ slides.forEach((element,index) => {
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
 });
   
-  
+    let autoPrevPlay;
+    let autoNextPlay;
 
 
-
-  
-const autoNextPlay = setInterval(nextPlay, 3000);
   
   // intercept click on the next icon 
-  //nextEl.addEventListener('click', nextPlay);
+  nextEl.addEventListener('click', nextPlay);
 
   function nextPlay() {  
       
+clearInterval(autoPrevPlay)
+ autoNextPlay = setInterval(nextPlay, 3000);
+
       console.log('cliccato su next');
     // select the current slide
     const currentSlide = slidesImages[activeSlide]
@@ -182,13 +183,19 @@ const autoNextPlay = setInterval(nextPlay, 3000);
   }
   
   // intercept click on the prev icon
-  
+
   
   // activeSlide = 0
-  prevEl.addEventListener('click', function () {
+  prevEl.addEventListener('click', prevPlay)
+
+
+  function prevPlay() {
+    
+  
     console.log('cliccato su prev');
   
     clearInterval(autoNextPlay)
+    autoPrevPlay = setInterval(prevPlay, 3000);
     
   
     // select the current slide
@@ -245,4 +252,4 @@ const autoNextPlay = setInterval(nextPlay, 3000);
         // add to the next thumb the active class
         nextThumb.classList.add('active')
 
-  })
+  }
